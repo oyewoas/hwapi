@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-// import router from './routes';
+import router from './src/routes';
 
 config();
 
@@ -19,7 +19,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 // Base Route Response
 app.get('/', (req, res) => res.json({ status: res.statusCode, message: 'Welcome to Ayooluwa server' }));
 
-// app.use(router);
+app.use(router);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
