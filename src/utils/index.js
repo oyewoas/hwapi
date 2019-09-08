@@ -1,3 +1,9 @@
 import makeApiCall from './apiCallFunction';
-
-export default makeApiCall
+import { messages, status, successResponse, errorResponse } from './responses'
+export {
+    makeApiCall,
+    status,
+    successResponse,
+    errorResponse,
+    messages
+}
