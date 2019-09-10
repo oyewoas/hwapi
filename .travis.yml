@@ -7,6 +7,7 @@ env:
   global:
   - CC_TEST_REPORTER_ID=6e88909a884f0304d049dbe9e4d7261af2ae104c540510edf967a75f96f453bc
 before_script:
+  - sudo redis-server /etc/redis/redis.conf --port 6379
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
