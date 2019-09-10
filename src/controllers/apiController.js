@@ -36,7 +36,7 @@ export default class ApiController {
         if (!response.data) return;
         posts = response.data.posts;
         posts.forEach(post => {
-          allPosts.push(post);
+          allPosts.push(post); 
         })
         const uniquePostsArray = Array.from(new Set(allPosts));
         return successResponse(res, status.success, uniquePostsArray);
