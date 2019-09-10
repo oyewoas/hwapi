@@ -4,17 +4,17 @@ client = redis.createClient()
 const log = console.log;
 client.on('connect',()=>log('Redis connected'))
 
-export const cacheMidWare =  (req, res, next) => {
+const cacheMidWare =  (req, res, next) => {
     let key = "__express__" + req.originalUrl || req.url;
 
-    client.get(key, function(err, reply) {
+    client.get(key, (err, reply) => {
         if (reply) {
             res.send(reply);
             return;
         } else {
             res.sendResponse = res.send;
             res.send = body => {
-                client.setex(key, 60, body);
+                client.psetex(key, 60000, body);
                 res.sendResponse(body);
             };
             next();
@@ -23,3 +23,4 @@ export const cacheMidWare =  (req, res, next) => {
 
 };
 
+export default cacheMidWare;

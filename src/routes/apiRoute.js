@@ -1,6 +1,6 @@
 import express from 'express';
 import { ApiController } from '../controllers';
-import { cacheMidWare } from '../middlewares/cache';
+import { cacheMidWare } from '../middlewares';
 
 const { apiGetRequestController } = ApiController
 

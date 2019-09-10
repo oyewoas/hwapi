@@ -1,5 +1,5 @@
 import validate from './validate';
-import midWare from './cache'
-export default {
-  validate, midWare
+import cacheMidWare from './cache'
+export {
+  validate, cacheMidWare
 };
